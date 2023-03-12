@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: whitesmoke;
+        }
+
+        .d{
+            margin-top: 10rem;
+            text-align: center;
+        }
+        input{
+            width: 25%;
+            padding: 1rem;
+            text-align: center;
+        }
+        h1{
+            font-size:4rem;
+        }
+        #submit{
+            width: 28%;
+            background-color:wheat;
+        }
+        #submit:hover{
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <div class="d">
+    <h1>BMI CALCULATER</h1>
+    <form onsubmit="return false">
+        <input type="text" id="weight" onchange="fit()" placeholder="Enter the weight in kg">
+        <br><br>
+        <input type="text" id="height" onchange="fit()" placeholder="Enter the height in feet">
+        <br><br>
+        <input type="submit" value="SUBMIT" id="submit" onclick="sub()"><br><br>
+        <input type="text" id="answer" placeholder="Your Bmi Value is ">
+    </form>
+    </div>
+    <script>
+        function sub() {
+            let weight=document.getElementById("weight").value;
+            let height=document.getElementById("height").value;
+            height=height*12;
+            height=height*0.025;
+            let bmi=weight/Math.pow(height,2)
+            bmi=Math.round(bmi);
+            if(weight=="" || height==""){
+                    alert("Enter anything")
+            }
+            else if(weight==isNaN || height==isNaN){
+                alert("Please enter")
+            }
+           
+            else if( bmi>=19 && bmi<=29){
+                alert("U r Healthy")
+            }
+            else if(bmi<19){
+                alert("You Are UnderWeight")
+            }
+          
+            else{
+                alert("You r overweight")
+            }
+            
+            document.getElementById("answer").value=bmi;
+            
+        }
+        
+    </script>
+</body>
+</html>
